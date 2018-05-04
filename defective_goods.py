@@ -47,7 +47,7 @@ def main():
                                     for k in GOODS_DEFECT_FIELDS}))
 
         elif user_choice == 2:
-            print("Ваш выбор - 2")  # Заглушка
+            print("Ваш выбор - 2")  # Заглушка редактировать поля
 
         elif user_choice == 3:
             try:
@@ -55,7 +55,7 @@ def main():
                 for i in goods:
                     print(i)
             except (NameError, UnboundLocalError):
-                print("Данные для отчета еще не заполненны!")  # Заглушка
+                print("Данные для отчета еще не заполненны!")
 
         elif user_choice == 4:
             print("Ваш выбор - 4")  # Заглушка - запись в файл

@@ -1,20 +1,18 @@
 """Модуль функций отображения и записи информации в файл
-
-import os
-
-cwd = os.getcwd()
-file_lst = os.listdir('.')
-print(cwd)
-
-for i in file_lst:
-    print(i)
 """
-import pandas as pd
-from openpyxl import load_workbook
 
-wb = load_workbook('src/sheet.xlsx')
-sheet = wb.get_sheet_by_name('Лист1')
+import xlwt
 
-df = pd.DataFrame(sheet.values)
+book = xlwt.Workbook(encoding="utf-8")
+sheet = book.add_sheet('Лист1')
 
-print(df)
+cols = ["A", "B", "C", "D", "E"]
+data = [1, 2, 3, 4, 5]
+
+for num in range(5):
+    row = sheet.row(num)
+    for index, col in enumerate(cols):
+        value = data[index] + num
+        row.write(index, value)
+
+book.save('src/poly.xls')
