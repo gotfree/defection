@@ -2,6 +2,8 @@ TODO: (In future)
     - pyenv/virtualenv
     - GUI
         - wxPython/Kivy/PyQt
+    - случай брака частного лица
+    - печать листов-актов отбраковки
     - База Данных (sqlite/postgres - SQLAlchemy)
     https://ru.wikibooks.org/wiki/SQLAlchemy
         - открыть таблицу/БД
