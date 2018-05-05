@@ -4,6 +4,11 @@
         [Customer] -- [Класс описывает Контрагента]
         [Goods] -- [Класс описывает Товар]
         [Result] -- [Класс описывает Решение по заявке на брак]
+
+    в текущей версие 0.2.0 - модуль не используется
+    написан для взаимодействия с БД посредством SQLAlchemy
+    исправить хардкодную инициацию __dict__,
+    на явную - с определенными полями
 """
 
 
@@ -58,6 +63,9 @@ def main():
     instance3 = Result(dispatch_dict)
 
     print("{}\n{}\n{}".format(instance1, instance2, instance3))
+
+    my_dict = dict(instance1.__dict__)
+    print(my_dict)
 
 
 if __name__ == '__main__':

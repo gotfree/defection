@@ -13,12 +13,13 @@
             в программе или нет
         ],
 """
-import input_validation as ipv
+import libs.input_validation as ipv
 # import output_write as opw
-from defect_classes import Customer, Goods
-from defect_vars import (CUSTOMER_DEFECT_FIELDS, GOODS_DEFECT_FIELDS,
-                         HOW_MANY_GOODS, MENU_CHOICE_STRING, RETURN_TO_MENU,
-                         SHARP_DELIM, STAR_DELIM, WELLCOME_STRING)
+from fillingVars.defect_vars import (CUSTOMER_DEFECT_FIELDS,
+                                     GOODS_DEFECT_FIELDS,
+                                     HOW_MANY_GOODS, MENU_CHOICE_STRING,
+                                     RETURN_TO_MENU, SHARP_DELIM, STAR_DELIM,
+                                     WELLCOME_STRING)
 
 
 def main():
@@ -37,14 +38,14 @@ def main():
             break
 
         elif user_choice == 1:
-            customer = Customer({k: str(input("Заполните поле {}: ".format(k)))
-                                 for k in CUSTOMER_DEFECT_FIELDS})
+            customer = {k: str(input("Заполните поле {}: ".format(k)))
+                        for k in CUSTOMER_DEFECT_FIELDS}
             how_many_goods = ipv.quantity_of_goods_validation(HOW_MANY_GOODS)
             goods = []
             for i in range(how_many_goods):
-                print("Товар: ", i)
-                goods.append(Goods({k: str(input("Заполните поле {}: ".format(k)))
-                                    for k in GOODS_DEFECT_FIELDS}))
+                print("Товар: ", i + 1)
+                goods.append({k: str(input("Заполните поле {}: ".format(k)))
+                              for k in GOODS_DEFECT_FIELDS})
 
         elif user_choice == 2:
             print("Ваш выбор - 2")  # Заглушка редактировать поля
@@ -59,6 +60,7 @@ def main():
 
         elif user_choice == 4:
             print("Ваш выбор - 4")  # Заглушка - запись в файл
+            # opw.write_to_file(customer, goods)
 
         # возврат в главное меню
         again = ipv.again_choice(RETURN_TO_MENU)

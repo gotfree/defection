@@ -9,7 +9,7 @@
 
 
 def start_info(delimiter, wellcome_string):
-    print("\n\n{0}\n{1}\n{0}".format((delimiter*2), wellcome_string))
+    print("\n\n{0}\n{1}\n{0}".format((delimiter * 2), wellcome_string))
 
 
 def menu_prompt(delimiter):
@@ -18,7 +18,7 @@ def menu_prompt(delimiter):
            "2. Редактировать существующие записи\n"
            "3. Вывести отчет\n"
            "4. Записать данные в файл\n"
-           "5. Выход\n".format(delimiter*2)))
+           "5. Выход\n".format(delimiter * 2)))
 
 
 def user_choice_validation(arg):
