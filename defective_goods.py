@@ -14,7 +14,7 @@
         ],
 """
 import libs.input_validation as ipv
-# import output_write as opw
+# import libs.output_write as opw
 from fillingVars.defect_vars import (CUSTOMER_DEFECT_FIELDS,
                                      GOODS_DEFECT_FIELDS,
                                      HOW_MANY_GOODS, MENU_CHOICE_STRING,
@@ -60,7 +60,7 @@ def main():
 
         elif user_choice == 4:
             print("Ваш выбор - 4")  # Заглушка - запись в файл
-            # opw.write_to_file(customer, goods)
+            # opw.write_to_file(customer, goods) <== mute Output
 
         # возврат в главное меню
         again = ipv.again_choice(RETURN_TO_MENU)
