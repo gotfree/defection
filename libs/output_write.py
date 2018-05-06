@@ -1,19 +1,44 @@
 """Модуль функций отображения и записи информации в файл
 """
-"""
-import xlsxwriter
+import openpyxl
 
 
-def write_headers(arg1, arg2, arg3):
-    wb = xlsxwriter.Workbook('output/test.xlsx')
-    ws = wb.add_worksheet()
+def create_file(arg1, arg2, arg3):
+    head_list = arg1 + arg2 + arg3
 
-    main_list = arg1 + arg2 + arg3
-    ws.write_row('A1', main_list)
+    dest_file = 'output/test.xlsx'
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.freeze_panes = 'A2'
 
-    wb.close()
+    next_col = 1
+    for i in head_list:
+        ws.cell(column=next_col, row=1, value=i)
+        next_col += 1
+
+    wb.save(filename=dest_file)
 
 
-def write_main_data(arg):
-    pass
-"""
+def write_tables(arg1, arg2):
+    """
+    Добавить вариант заполнения в случае, когда у контрагента
+    больше одного товара
+
+    добавить автоматическую шрину ячейки
+    """
+    if len(arg2) > 1:
+        print("Запись нескольких товаров, скоро появится")
+    else:
+        value_list = list(arg1.values()) + list(arg2[0].values())
+
+        dest_file = 'output/test.xlsx'
+        wb = openpyxl.load_workbook(dest_file)
+        ws = wb.active
+
+        next_col = 1
+        row_num = ws.max_row + 1
+        for i in value_list:
+            ws.cell(column=next_col, row=row_num, value=i)
+            next_col += 1
+
+        wb.save(filename=dest_file)

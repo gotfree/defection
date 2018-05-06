@@ -34,7 +34,7 @@ def main():
 
         # выбор пункта меню
         user_choice = ipv.user_choice_validation(MENU_CHOICE_STRING)
-        if user_choice == 5:
+        if user_choice == 6:
             break
 
         elif user_choice == 1:
@@ -59,10 +59,12 @@ def main():
                 print("Данные для отчета еще не заполненны!")
 
         elif user_choice == 4:
-            print("Ваш выбор - 4")  # Заглушка - запись в файл
-            opw.write_headers(CUSTOMER_DEFECT_FIELDS,
-                              GOODS_DEFECT_FIELDS,
-                              RESULT_DEFECT_FIELDS)
+            opw.write_tables(customer, goods)
+
+        elif user_choice == 5:
+            opw.create_file(CUSTOMER_DEFECT_FIELDS,
+                            GOODS_DEFECT_FIELDS,
+                            RESULT_DEFECT_FIELDS)
 
         # возврат в главное меню
         again = ipv.again_choice(RETURN_TO_MENU)

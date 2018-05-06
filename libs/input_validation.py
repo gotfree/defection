@@ -18,7 +18,8 @@ def menu_prompt(delimiter):
            "2. Редактировать существующие записи\n"
            "3. Вывести отчет\n"
            "4. Записать данные в файл\n"
-           "5. Выход\n".format(delimiter * 2)))
+           "5. Создать файл\n"
+           "6. Выход\n".format(delimiter * 2)))
 
 
 def user_choice_validation(arg):
@@ -37,8 +38,8 @@ def user_choice_validation(arg):
             print("Введите целое число")
             continue
         else:
-            if value not in range(1, 6):
-                print("Введите число от 1 до 5")
+            if value not in range(1, 7):
+                print("Введите число от 1 до 6")
             else:
                 break
     return value
