@@ -35,9 +35,11 @@ def main():
         # выбор пункта меню
         user_choice = ipv.user_choice_validation(MENU_CHOICE_STRING)
         if user_choice == 6:
+            # Выход
             break
 
         elif user_choice == 1:
+            # Сбор данных
             customer = {k: str(input("Заполните поле {}: ".format(k)))
                         for k in CUSTOMER_DEFECT_FIELDS}
             how_many_goods = ipv.quantity_of_goods_validation(HOW_MANY_GOODS)
@@ -48,9 +50,11 @@ def main():
                               for k in GOODS_DEFECT_FIELDS})
 
         elif user_choice == 2:
-            print("Ваш выбор - 2")  # Заглушка редактировать поля
+            # Заглушка редактировать данные
+            print("Ваш выбор - 2")
 
         elif user_choice == 3:
+            # Отчет о данных в косоль
             try:
                 print("\n{}\n".format(customer))
                 for i in goods:
@@ -59,9 +63,14 @@ def main():
                 print("Данные для отчета еще не заполненны!")
 
         elif user_choice == 4:
-            opw.write_tables(customer, goods)
+            # Запись данных в xlsx
+            if len(goods) > 1:
+                opw.write_poly_tables(customer, goods)
+            else:
+                opw.write_tables(customer, goods)
 
         elif user_choice == 5:
+            # Создание нового файла
             opw.create_file(CUSTOMER_DEFECT_FIELDS,
                             GOODS_DEFECT_FIELDS,
                             RESULT_DEFECT_FIELDS)
