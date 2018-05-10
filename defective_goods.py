@@ -1,32 +1,27 @@
 """Программа учета брака организации
     version - 0.2.0 (27 04 2018)
     version - 0.3.0 (09 05 2018)
+    version - 0.4.0 (10 05 2018)
 
-    В состав модуля входят:
-        [user_choice] = [
-            Пересенная - триггер, хранит целочисленное значение
-            для выбора пункта меню в основном цикле программы
-        ],
-        [how_many_goods] = [Количество товаров],
-        [goods] = [Список для создания экземпляров классов],
-        [again] = [
-            Переменная триггер для решения продолжать работу
-            в программе или нет
-        ],
+    В состав программы входят:
+        [user_choice] -- [Строка хранит выбор пункта меню]
+        [how_many_goods] -- [Строка хранит количество товаров]
+        [customer] -- [Словарь с информацией о контрагенте]
+        [goods] -- [Список словарей с информацией о товарах]
 """
 import libs.input_validation as ipv
 import libs.output_write as opw
 from fillingVars.defect_vars import (CUSTOMER_DEFECT_FIELDS,
-                                     GOODS_DEFECT_FIELDS, RESULT_DEFECT_FIELDS,
+                                     RESULT_DEFECT_FIELDS, GOODS_DEFECT_FIELDS,
                                      HOW_MANY_GOODS, MENU_CHOICE_STRING,
                                      RETURN_TO_MENU, SHARP_DELIM, STAR_DELIM,
                                      WELLCOME_STRING)
 
 
 def main():
-    """Базовая функция программы
-        инициирует главный цикл программы
+    """Базовая функция программы инициирует главный цикл
     """
+
     # сводка о программе
     ipv.start_info(STAR_DELIM, WELLCOME_STRING)
 
@@ -51,11 +46,11 @@ def main():
                               for k in GOODS_DEFECT_FIELDS})
 
         elif user_choice == 2:
-            # Заглушка редактировать данные
+            # Заглушка "редактировать данные"
             print("Ваш выбор - 2")
 
         elif user_choice == 3:
-            # Отчет о данных в косоль
+            # Отчет о данных в консоль
             try:
                 print("\n{}\n".format(customer))
                 for i in goods:
@@ -64,7 +59,7 @@ def main():
                 print("Данные для отчета еще не заполненны!")
 
         elif user_choice == 4:
-            # Запись данных в xlsx
+            # Запись данных в файл
             if len(goods) > 1:
                 opw.write_poly_tables(customer, goods)
             else:
