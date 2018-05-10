@@ -15,6 +15,8 @@ import openpyxl
 def create_file(arg1, arg2, arg3):
     """Функция создания нового файла
 
+    - Добавить ширину ячеек
+
     Args:
         arg1 (tuple): кортеж для ячеек заголовка файла (CUSTOMER_DEFECT_FIELDS)
         arg2 (tuple): кортеж для ячеек заголовка файла (GOODS_DEFECT_FIELDS)
@@ -38,19 +40,15 @@ def create_file(arg1, arg2, arg3):
 
 
 def write_poly_tables(arg1, arg2):
-    """
-    Добавить вариант заполнения в случае, когда у контрагента
-    больше одного товара
-        - Значения первого словаря из goods, записать как
-        в ветке else
-        - Значения последующих словарей записать аналогично, но
-        вместо инфо о покупателе записать None ячейки
+    """Запись в файл информации о клиенте и нескольких товарах
 
-    добавить автоматическую шрину ячейки
+    - Требуется рефакторинг/декомпозиция
+    - Рассмотреть вариант декоратора функции write_tables
 
     Args:
-        arg1 (TYPE): Description
-        arg2 (TYPE): Description
+        arg1 (dict): Словарь с данными о контрагенте
+        arg2 (list): Список словарей (частный случай - одного словаря)
+        с информацией о товаре от конкретного контрагента
     """
     dest_file = 'output/test.xlsx'
     none_list = [None, None, None]
@@ -65,7 +63,6 @@ def write_poly_tables(arg1, arg2):
     for i in value_poly_list:
         wps.cell(column=next_col, row=row_num, value=i)
         next_col += 1
-    # Весь код выше заменить вызовом функции write_tables()
 
     # "вытолкнули" первый элемент списка
     arg2.pop(0)
@@ -76,22 +73,13 @@ def write_poly_tables(arg1, arg2):
         for i in temp_list:
             wps.cell(column=next_col, row=row_num, value=i)
             next_col += 1
-        """
-        записать поочередно словарь из None и значений goods
-        в последующие строки
-        """
-    print("Запись нескольких товаров, скоро появится")
-    """
-    count = 0
-    for x in arg2:
-        x[count].write....
-        count += 1
-    """
+
+    print("Информация успешно записана")
     wpb.save(filename=dest_file)
 
 
 def write_tables(arg1, arg2):
-    """Summary
+    """Запись в файл информации о клиенте и об одном товаре
 
     Args:
         arg1 (dict): Словарь с данными о контрагенте
@@ -109,4 +97,5 @@ def write_tables(arg1, arg2):
         ws.cell(column=next_col, row=row_num, value=i)
         next_col += 1
 
+    print("Информация успешно записана")
     wb.save(filename=dest_file)
