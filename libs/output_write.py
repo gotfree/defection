@@ -15,8 +15,6 @@ import openpyxl
 def create_file(arg1, arg2, arg3):
     """Функция создания нового файла
 
-    - Добавить ширину ячеек
-
     Args:
         arg1 (tuple): кортеж для ячеек заголовка файла (CUSTOMER_DEFECT_FIELDS)
         arg2 (tuple): кортеж для ячеек заголовка файла (GOODS_DEFECT_FIELDS)
@@ -35,6 +33,19 @@ def create_file(arg1, arg2, arg3):
     for i in head_tuple:
         ws.cell(column=next_col, row=1, value=i)
         next_col += 1
+
+    # Задание ширины колонкам
+    ws.column_dimensions["A"].width = 35
+    ws.column_dimensions["B"].width = 16
+    ws.column_dimensions["C"].width = 16
+    ws.column_dimensions["D"].width = 11
+    ws.column_dimensions["E"].width = 35
+    ws.column_dimensions["F"].width = 12
+    ws.column_dimensions["G"].width = 18
+    ws.column_dimensions["H"].width = 35
+    ws.column_dimensions["I"].width = 22
+    ws.column_dimensions["J"].width = 22
+    ws.column_dimensions["K"].width = 22
 
     wb.save(filename=dest_file)
 
