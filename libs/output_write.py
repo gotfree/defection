@@ -9,7 +9,14 @@
     [write_tables] -- [Функция проверки пользовательского ввода]
 """
 
+from pathlib import Path
+import os
 import openpyxl
+
+BASE_DIR = Path().resolve()
+PATH_SEP = os.sep
+DEST_FILE = 'output{}output.xlsx'.format(PATH_SEP)
+path = os.path.join(BASE_DIR, DEST_FILE)
 
 
 def create_file(arg1, arg2, arg3):
@@ -110,3 +117,7 @@ def write_tables(arg1, arg2):
 
     print("Информация успешно записана")
     wb.save(filename=dest_file)
+
+
+if __name__ == '__main__':
+    print(path)
