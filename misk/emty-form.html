@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    <link bootstrap4>
+    <link google fonts 'Roboto' 'Open Sans'>
+    -->
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        table .text-center {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .manager-mark {
+            font-size: 25px;
+            font-weight: 800;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-around my-5">
+        <img src="logo.png" width="400" height="83" />
+        <div class="">
+          <ul class="list-unstyled">
+            <li>ООО "ЮЖНЫЙ ФОРПОСТ"</li>
+            <li>г.Астрахань, ул.Н.Островского, 148А</li>
+            <li>тел. +7(8512)611-660</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <h2 class="mt-5 mb-5">Акт приема товара на диагностику</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <table class="table table-striped">
+          <th class="text-center">Покупатель</th>
+          <tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr>
+          <th class="text-center">Телефон/e-mail/icq</th>
+          <tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr>
+          <th class="text-center">Дата обращения</th>
+          <tr class="text-center">
+            <td class="text-center" id="current-date"></td>
+          </tr>
+          <th class="text-center">Номенклатура товара</th>
+          <tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr><tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr><tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr>
+          <th class="text-center">Неисправность (со слов покупателя)</th>
+          <tr class="text-center">
+            <td class="text-center">"Не работает"</td>
+          </tr>
+          <th class="text-center">Товарный вид</th>
+          <tr class="text-center">
+            <td class="text-center">_________________________</td>
+          </tr>
+          <th class="text-center">Отметка менеджера</th>
+          <tr class="text-center">
+            <td class="text-center manager-mark">_________________________</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="d-flex justify-content-around my-5">
+        <div>
+          <p>____________________________/_______</p>
+          <p>(Принимающая сторона)</p>
+        </div>
+        <div>
+          <p>____________________________/_______</p>
+          <p>(Сдающая сторона)</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      /*document.body.contentEditable = true;*/
+      function ddmmyyyy() {
+        function twoDigit(n) { return (n < 10 ? '0' : '') + n; }
+            var now = new Date();
+            var sep = '.'
+            var output = twoDigit(now.getDate()) + sep + twoDigit(now.getMonth() + 1) + sep + now.getFullYear();
+            return output
+        }
+      document.getElementById('current-date').textContent = ddmmyyyy();
+    </script>
+  </body>
+</html>
