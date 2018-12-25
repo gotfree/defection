@@ -10,7 +10,7 @@
 """
 
 import openpyxl
-from settings import BASE_DIR
+from ..settings import BASE_DIR
 
 
 def create_file(arg1, arg2, arg3):
@@ -114,4 +114,4 @@ def write_tables(arg1, arg2):
 
 
 if __name__ == '__main__':
-    print(path)
+    print(BASE_DIR)
