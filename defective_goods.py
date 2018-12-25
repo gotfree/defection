@@ -11,11 +11,11 @@
 """
 import libs.input_validation as ipv
 import libs.output_write as opw
-from fillingVars.defect_vars import (CUSTOMER_DEFECT_FIELDS,
-                                     RESULT_DEFECT_FIELDS, GOODS_DEFECT_FIELDS,
-                                     HOW_MANY_GOODS, MENU_CHOICE_STRING,
-                                     RETURN_TO_MENU, SHARP_DELIM, STAR_DELIM,
-                                     WELLCOME_STRING)
+from settings import (CUSTOMER_DEFECT_FIELDS,
+                      RESULT_DEFECT_FIELDS, GOODS_DEFECT_FIELDS,
+                      HOW_MANY_GOODS, MENU_CHOICE_STRING,
+                      RETURN_TO_MENU, SHARP_DELIM, STAR_DELIM,
+                      WELLCOME_STRING)
 
 
 def main():

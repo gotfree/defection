@@ -9,14 +9,8 @@
     [write_tables] -- [Функция проверки пользовательского ввода]
 """
 
-from pathlib import Path
-import os
 import openpyxl
-
-BASE_DIR = Path().resolve()
-PATH_SEP = os.sep
-DEST_FILE = 'output{}output.xlsx'.format(PATH_SEP)
-path = os.path.join(BASE_DIR, DEST_FILE)
+from settings import BASE_DIR
 
 
 def create_file(arg1, arg2, arg3):
