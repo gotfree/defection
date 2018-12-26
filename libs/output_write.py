@@ -10,7 +10,6 @@
 """
 
 import openpyxl
-from ..settings import BASE_DIR
 
 
 def create_file(arg1, arg2, arg3):
@@ -111,7 +110,3 @@ def write_tables(arg1, arg2):
 
     print("Информация успешно записана")
     wb.save(filename=dest_file)
-
-
-if __name__ == '__main__':
-    print(BASE_DIR)
