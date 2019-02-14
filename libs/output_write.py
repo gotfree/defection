@@ -9,6 +9,7 @@
     [write_tables] -- [Функция проверки пользовательского ввода]
 """
 
+import os
 import openpyxl
 
 
@@ -22,6 +23,7 @@ def create_file(arg1, arg2, arg3):
     """
     head_tuple = arg1 + arg2 + arg3
 
+    dest_dir = 'output/'
     dest_file = 'output/test.xlsx'
     wb = openpyxl.Workbook()
     ws = wb.active
@@ -46,6 +48,9 @@ def create_file(arg1, arg2, arg3):
     ws.column_dimensions["I"].width = 22
     ws.column_dimensions["J"].width = 22
     ws.column_dimensions["K"].width = 22
+
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
 
     wb.save(filename=dest_file)
 
