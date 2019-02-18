@@ -60,10 +60,13 @@ def main():
 
         elif user_choice == 4:
             # Запись данных в файл
-            if len(goods) > 1:
-                opw.write_poly_tables(customer, goods)
-            else:
-                opw.write_tables(customer, goods)
+            try:
+                if len(goods) > 1:
+                    opw.write_poly_tables(customer, goods)
+                else:
+                    opw.write_tables(customer, goods)
+            except (NameError, UnboundLocalError):
+                print("Данные для записи не были инициализированны!")
 
         elif user_choice == 5:
             # Создание нового файла

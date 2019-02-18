@@ -12,3 +12,4 @@
 3. Создать GUI
 4. Рефакторинг/оптимизиция
 5. Организовать представление файлов отчета в GUI/html/docx
+6. issue for: file already exists exception
