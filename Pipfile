@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+jdcal = "==1.4"
+numpy = "==1.14.3"
+openpyxl = "==2.5.3"
+pandas = "==0.22.0"
+python-dateutil = "==2.7.2"
+pytz = "==2018.4"
+six = "==1.11.0"
+et_xmlfile = "==1.0.1"
+
+[requires]
+python_version = "3.6"
