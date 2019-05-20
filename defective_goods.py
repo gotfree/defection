@@ -57,7 +57,7 @@ def main():
                 for i in goods:
                     print(i)
             except (NameError, UnboundLocalError):
-                print("Данные для отчета еще не заполненны!")
+                print("Данные для отчета еще не заполнены!")
 
         elif user_choice == 4:
             # Запись данных в файл
@@ -67,7 +67,7 @@ def main():
                 else:
                     opw.write_tables(customer, goods)
             except (NameError, UnboundLocalError):
-                print("Данные для записи не были инициализированны!")
+                print("Данные для записи не были инициализированы!")
 
         elif user_choice == 5:
             # Создание нового файла
